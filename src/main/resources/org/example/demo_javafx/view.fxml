@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.layout.Background?>
+<?import javafx.scene.control.TextField?>
+<!--        分别 居中 控制组件间距、FXML 命名空间、界面绑定的控制器类-->
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.demo_javafx.FXController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <HBox alignment="CENTER_RIGHT">
+        <Text text="刷新时间: "/>
+        <Spinner fx:id="Time_Field" promptText="设置刷新时间(单位:秒)" prefWidth="200"/> <!-- prefWidth文本框宽度 -->
+    </HBox>
+    <HBox alignment="CENTER_RIGHT">
+        <Text text="启用温度: "/>
+        <Spinner fx:id="Temperature" promptText="设置温度(单位:摄氏度)" prefWidth="200"/>
+    </HBox>
+    <HBox alignment="CENTER_RIGHT">
+        <Text text="文件路径:"/>
+        <TextField fx:id="FilePath" promptText="设置温度文件的路径" prefWidth="200"/>
+    </HBox>
+    <HBox alignment="CENTER_RIGHT">
+        <Text text="Python脚本路径:"/>
+        <TextField fx:id="py_file" promptText="设置Python脚本的路径" prefWidth="200"/>
+    </HBox>
+    <HBox>
+        <Button text="Save" onAction="#onSave"/>
+        <Button text="Default" />
+    </HBox>
+
+    <Label fx:id="message" text="保存成功!" textFill="#1c8000" visible="false"/>
+</VBox>

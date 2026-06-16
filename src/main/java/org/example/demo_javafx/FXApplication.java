@@ -1,0 +1,47 @@
+package org.example.demo_javafx;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import org.example.demo_javafx.control.Config;
+import org.example.demo_javafx.thread.Timer;
+
+
+import java.util.ArrayList;
+
+/**
+ * JavaFX框架中:
+ *      会先执行Controller的initialize()方法,再执行Application
+ *
+ */
+public class FXApplication extends Application {
+
+    @Override
+    public void start(Stage stage){
+        try {
+            //读取FXML的样式
+            FXMLLoader fxmlLoader = new FXMLLoader(FXApplication.class.getResource("view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+            stage.setTitle("Setting");
+            stage.setScene(scene);
+            stage.setResizable(false);      //不允许调整窗口大小
+
+//            stage.getIcons().add(new Image("")); //设置窗口图标
+
+            stage.show();//显示窗口
+            System.out.println("Application  start method running over !");
+        } catch (Exception e) {
+            System.out.println("初始化FXApplication错误: "+e.getMessage());
+            e.printStackTrace();  // 打印完整堆栈
+            System.exit(7);
+        }
+    }
+
+    //关闭时调用
+    @Override
+    public void stop() throws Exception {
+
+    }
+}
