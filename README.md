@@ -1,25 +1,43 @@
 # 安装
+### 方法一
+1. 手动下载Liberica JDK 21(与OpenJDK21的区别在于: 集成了图形界面库 JavaFX)
+    ```
+    wget https://download.bell-sw.com/java/21.0.6+10/bellsoft-jdk21.0.6+10-linux-aarch64-full.tar.gz         # 安装拥有JavaFX的jdk21
+    tar -xzf bellsoft-jdk21.0.6+10-linux-aarch64-full.tar.gz         #解压
+    ```
+2. 设置环境变量
+    ```
+    export JAVA_HOME=[下载并解压的JDK路径]
+    export PATH=$JAVA_HOME/bin:$PATH
+    ```
+3. 安装python以及gpiozero框架
+   ```
+    apt install python
+    pip install gpiozero   # 这一步可以省略,一般树莓派系统会自带
+   ```
 
-1. 在树莓派安装Java17 与 Python:
 
-```
-apt install openjdk-17-jdk
-apt install python
-```
+### 方法二
+1. 在树莓派安装Java21 与 Python:
 
-<br>
-2. 安装JavaFX框架依赖:
+      ```
+      apt install default-openjdk
+      apt install python
+      ```
 
-```
-apt install openjfx
-```
+      <br>
+2. 安装apt默认的JavaFX框架依赖:
 
-<br>
+      ```
+      apt install openjfx
+      ```
+
+    <br>
 3. 安装python依赖gpiozero(这一步可以省略,一般树莓派系统会自带)
 
-```
-pip install gpiozero
-```
+      ```
+      pip install gpiozero
+      ```
 ## 风扇与树莓派GPIO引脚连接
 
 1. NPN三极管:
@@ -41,9 +59,7 @@ pip install gpiozero
 
 1. 在终端输入
    ```
-   cd /home/ngo
-   wget https://download.bell-sw.com/java/21.0.6+10/bellsoft-jdk21.0.6+10-linux-aarch64-full.tar.gz
-   tar -xzf bellsoft-jdk21.0.6+10-linux-aarch64-full.tar.gz
+   java -jar [项目的Fat_Jar包名]        #运行
    ```
    或者
    ```
