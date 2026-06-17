@@ -76,7 +76,7 @@ public class Config {
      *     修改参数时,在jar包目录下生成一份conf.properties配置文件
      *      未使用
      * */
-    public static void setConfig(){
+    public static void setConfig(String target,int temp,int time){
         File file = new File("./conf.properties");
         try{
             file.createNewFile();

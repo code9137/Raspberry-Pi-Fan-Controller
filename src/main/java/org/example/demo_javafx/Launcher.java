@@ -13,7 +13,7 @@ public class  Launcher {
     public static int time_ = 3;    //刷新时间(秒)
     public static Integer temperature = 40;  //目标温度(摄氏度*1000)
     public static String file_path = "/sys/class/thermal/thermal_zone0/temp";
-    public static String py_path = "./python/GPIO_Controller.py";
+    public static String py_path = "python/GPIO_Controller.py";
 
     public static void main(String[] args) {
 

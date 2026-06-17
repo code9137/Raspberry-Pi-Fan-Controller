@@ -91,12 +91,21 @@ public class FXController {
             message.setTextFill(new Color(1,0,0 ,1));
         }
 
-        //文件
+        //温度文件
         try{
             Launcher.file_path= FilePath.getText();
             System.out.println(FilePath.getText());
         }catch (Exception e){
             message.setText("设置文件错误："+e.getMessage());
+            message.setTextFill(new Color(1,0,0 ,1));
+        }
+
+        //py脚本文件
+        try{
+            Launcher.py_path= py_file.getText();
+            System.out.println(py_file.getText());
+        }catch (Exception e){
+            message.setText("设置Py脚本文件错误："+e.getMessage());
             message.setTextFill(new Color(1,0,0 ,1));
         }
 

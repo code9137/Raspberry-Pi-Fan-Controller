@@ -78,8 +78,7 @@ public class Timer implements Runnable{
                     Thread.sleep( (Launcher.time_* 1000L));
 
                     //读取指定文件的温度
-                    byte[] temperature = new byte[5];
-                    int i = Integer.parseInt(input.readLine());
+                    int i = Integer.parseInt(input.readLine().trim());
                     System.out.println("temperature == "+i/1000);
 
                     //关闭IO流
@@ -88,6 +87,7 @@ public class Timer implements Runnable{
                     input = new BufferedReader(new InputStreamReader(new FileInputStream(temp_file)));
 
 
+                    //当温度达到指定温度时,调用python文件
                     if(i > Launcher.temperature*1000){
                         if(!new File(Launcher.file_path).exists())
                             System.out.println("python文件不存在!");
@@ -98,15 +98,11 @@ public class Timer implements Runnable{
                         Process start = process.start();
                         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(start.getInputStream()));
                         String word;
-                        while((word = bufferedReader.readLine().trim()) != null){
+                        while((word = bufferedReader.readLine()) != null){
                             System.out.println(word);
                         }
-                        System.out.println(start.exitValue());
-
-                        System.out.println("python running");
+                        System.out.println("python exit code: "+start.exitValue());
                     }
-
-                    System.out.println("over");
 
 
                 }catch (InterruptedException e){

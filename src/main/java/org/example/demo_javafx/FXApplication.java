@@ -31,7 +31,7 @@ public class FXApplication extends Application {
 //            stage.getIcons().add(new Image("")); //设置窗口图标
 
             stage.show();//显示窗口
-            System.out.println("Application  start method running over !");
+            System.out.println("Application start method running over !");
         } catch (Exception e) {
             System.out.println("初始化FXApplication错误: "+e.getMessage());
             e.printStackTrace();  // 打印完整堆栈
