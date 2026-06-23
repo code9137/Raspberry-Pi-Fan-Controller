@@ -20,12 +20,23 @@ public class FXApplication extends Application {
 
     @Override
     public void start(Stage stage){
+        int height = 240;
+        int width = 320;
+
+
         try {
             //读取FXML的样式
             FXMLLoader fxmlLoader = new FXMLLoader(FXApplication.class.getResource("view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+            Scene scene = new Scene(fxmlLoader.load(), width, height);
             stage.setTitle("Setting");
             stage.setScene(scene);
+
+            //设置大小,setResizable(boolean)在树莓派系统中无效
+            stage.setMinHeight(height);
+            stage.setMaxHeight(height);
+            stage.setMinWidth(width);
+            stage.setMaxWidth(width);
+
             stage.setResizable(false);      //不允许调整窗口大小
 
 //            stage.getIcons().add(new Image("")); //设置窗口图标
