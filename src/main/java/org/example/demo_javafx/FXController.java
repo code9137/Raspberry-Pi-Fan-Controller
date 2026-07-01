@@ -1,11 +1,13 @@
 package org.example.demo_javafx;
 
 import javafx.animation.PauseTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import org.example.demo_javafx.control.Config;
 
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
@@ -67,7 +69,7 @@ public class FXController {
     @FXML
     protected void onSave(){
         System.out.println("save");
-        message.setVisible(true);
+
         message.setTextFill(new Color(0,0.7,0 ,1));
         //刷新时间
         try {
@@ -116,6 +118,8 @@ public class FXController {
         Launcher.thread.start();
 
 
+        message.setText("保存成功!");
+        message.setVisible(true);
         //用于显示是否保存成功
         //创建两秒的延迟任务
         // PauseTransition： 创建JavaFX延迟操作
@@ -128,5 +132,23 @@ public class FXController {
         pauseTransition.play();
     }
 
+    @FXML
+    public void onDefault() {
+        Config.default_load();
 
+
+
+        message.setText("重置成功");
+        message.setVisible(true);
+        //用于显示是否保存成功
+        //创建两秒的延迟任务
+        // PauseTransition： 创建JavaFX延迟操作
+        // Duration是一个时间对象：指定时间单位与长度
+        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2));
+
+        pauseTransition.setOnFinished(event -> message.setVisible(false));
+
+        // 4. 启动延时任务
+        pauseTransition.play();
+    }
 }

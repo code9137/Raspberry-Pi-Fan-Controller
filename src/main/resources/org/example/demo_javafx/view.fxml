@@ -43,7 +43,7 @@
     </HBox>
     <HBox>
         <Button text="Save" onAction="#onSave"/>
-        <Button text="Default" />
+        <Button text="Default" onAction="#onDefault" />
     </HBox>
 
     <Label fx:id="message" text="保存成功!" textFill="#1c8000" visible="false"/>
