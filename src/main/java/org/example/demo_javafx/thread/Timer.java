@@ -28,7 +28,7 @@ public class Timer implements Runnable{
     public Timer restart_timer(Thread thread){
 
         this.stop_boo = false; // 不再循环
-        thread.interrupt();
+        thread.interrupt(); //关闭该多线程
 
         return new Timer();
     }
@@ -43,29 +43,6 @@ public class Timer implements Runnable{
             System.out.println("多线程初始化错误:"+e.getMessage());
         }
     }
-
-    //设置文件路径
-    public void setFilePath(String file) {
-        try{
-            //关闭旧的IO流
-            if(input != null)input.close();
-        } catch (Exception e) {
-            System.out.println("关闭旧IO流失败:"+e.getMessage());
-        }finally {
-            // 置空,防止报错
-            input = null;
-        }
-
-        try {
-            if(file != null && !file.isEmpty()){
-                this.temp_file = new File(file);
-                input = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-            }
-        }catch (Exception e){
-            System.out.println("新建IO流失败: "+e.getMessage());
-        }
-    }
-
 
     @Override
     public void run() {

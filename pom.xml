@@ -41,6 +41,16 @@
     </dependencies>
 
     <build>
+        <!--将src/main/resources的资源,也导入Jar包中-->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -72,7 +82,12 @@
                 </executions>
             </plugin>
 
-<!--  打包工具,注: 打包的不是fat-jar包          -->
+            <!--
+                打包工具,注: 打包的为fat-jar包
+                由于高版本JDK中没有JavaFX的依赖, 所以拥有fat-jar包也不可以直接运行
+
+                使用java -jar <jar包> 运行时,需要添加 - -module-path <JavaFX SDK>
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>

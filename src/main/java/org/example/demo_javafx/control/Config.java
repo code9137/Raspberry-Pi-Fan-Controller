@@ -50,7 +50,7 @@ public class Config {
     public static ArrayList<Object> default_load(){
         //获取Jar包内部指定的文件的输入流
         //.getClassLoader()获取 当前Class的ClassLoader对象(类加载器对象) 用于加载类路径（ClassPath）下的.class文件到JVM  以及  读取类路径下的资源文件（如.properties、.txt）
-        //返回参数
+        //ClassLoader
         ArrayList<Object> param = new ArrayList<>();
         try {
             InputStream stream = Config.class.getClassLoader().getResourceAsStream("conf.properties");
@@ -62,6 +62,7 @@ public class Config {
             param.add(Integer.parseInt(properties.getProperty("time")));
             param.add(properties.getProperty("filePath"));
             param.add(properties.getProperty("pythonPath"));
+            System.out.println("读取默认配置成功");
         } catch (Exception e) {
             System.out.println("读取默认配置失败:"+e.getMessage());
         }
@@ -77,6 +78,7 @@ public class Config {
      *      未使用
      * */
     public static void setConfig(String target,int temp,int time){
+//        String jar_path = Config.class.
         File file = new File("./conf.properties");
         try{
             file.createNewFile();
@@ -88,6 +90,7 @@ public class Config {
             properties.setProperty("time", String.valueOf(Launcher.time_));
             properties.setProperty("filePath", Launcher.file_path);
 
+//            properties.store();//保存至文件中,形参(输出流,开头注释)
         } catch (Exception e) {
             System.out.println("创建配置文件失败:"+e.getMessage());
         }
