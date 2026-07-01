@@ -1,6 +1,6 @@
 package org.example.demo_javafx.control;
 
-import org.example.demo_javafx.FXApplication;
+
 import org.example.demo_javafx.Launcher;
 
 import java.io.*;

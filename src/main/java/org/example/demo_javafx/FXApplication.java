@@ -3,13 +3,8 @@ package org.example.demo_javafx;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.example.demo_javafx.control.Config;
-import org.example.demo_javafx.thread.Timer;
 
-
-import java.util.ArrayList;
 
 /**
  * JavaFX框架中:

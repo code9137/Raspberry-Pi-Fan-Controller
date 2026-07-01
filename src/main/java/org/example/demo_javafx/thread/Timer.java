@@ -4,9 +4,7 @@ package org.example.demo_javafx.thread;
 import org.example.demo_javafx.Launcher;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 
 public class Timer implements Runnable{

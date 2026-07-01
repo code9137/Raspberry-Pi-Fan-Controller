@@ -6,10 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import org.example.demo_javafx.control.Config;
-import org.example.demo_javafx.thread.Timer;
 
-import java.util.List;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
